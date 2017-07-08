@@ -4,7 +4,9 @@ Corrects permissions and owner settings of Windows Redirected Folders (user prof
 
 # Installation
 Open the project with MS Visual Studio and compile it.
+
 Note the Settings file and change it to your needs.
+
 Run it on the server where your redirected folders' data resides, e.g. your domain controller.
 
 
@@ -15,5 +17,5 @@ E.g. in English systems, change the group names like
 - ERSTELLER-BESITZER -> CREATOR-OWNER
 
 
-#Links
+# Links
 - Website http://www.dxsdata.com
