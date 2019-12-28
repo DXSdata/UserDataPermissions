@@ -132,6 +132,9 @@ namespace UserDataPermissions
                 Log("  Processing subfiles");
                 foreach(FileInfo userfile in userdir.GetFiles("*.*", SearchOption.AllDirectories))
                 {
+                    if (!userfile.Exists) //prevent FileNotFoundException if application runs for a longer time
+                        continue;
+
                     if (Settings.Default.debug)
                         Log("    " + userfile.FullName);
 
