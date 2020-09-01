@@ -13,6 +13,7 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;Administratoren&lt;/string&gt;
   &lt;string&gt;SYSTEM&lt;/string&gt;
+  &lt;string&gt;Domänencomputer&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="defaultGroup" Type="System.String" Scope="Application">
