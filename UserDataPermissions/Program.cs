@@ -99,7 +99,7 @@ namespace UserDataPermissions
                 {
                     user.Translate(typeof(SecurityIdentifier)); //only necessary to check if user exists in domain
                 }
-                catch(IdentityNotMappedException)
+                catch (IdentityNotMappedException)
                 {
                     Log(" User " + userdir.Name + " not found in domain " + Settings.Default.domain);
                     continue;
@@ -120,12 +120,25 @@ namespace UserDataPermissions
                     if (Settings.Default.debug)
                         Log("    " + usersubdir.FullName);
 
-                    sec = new DirectorySecurity(usersubdir.FullName, AccessControlSections.All);
-                    RemoveExplicitSecurity(sec);
-                    sec.SetAccessRuleProtection(false, false);
-                    //sec.AddAccessRule(new FileSystemAccessRule(usersubdir.Name, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
-                    sec.SetOwner(user);
-                    usersubdir.SetAccessControl(sec);
+                    try
+                    {
+                        sec = new DirectorySecurity(usersubdir.FullName, AccessControlSections.All);
+                        RemoveExplicitSecurity(sec);
+                        sec.SetAccessRuleProtection(false, false);
+                        //sec.AddAccessRule(new FileSystemAccessRule(usersubdir.Name, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+                        sec.SetOwner(user);
+                        usersubdir.SetAccessControl(sec);
+                    }
+                    catch (ArgumentOutOfRangeException e)
+                    {
+                        Log($"{e.Message}: {usersubdir.FullName}");
+                        continue;
+                    }
+                    catch (ArgumentException)
+                    {
+                        Log("Error processing file (path might be too long): " + usersubdir.FullName);
+                        continue;
+                    }
                 }
 
                 //Subfiles
@@ -149,12 +162,16 @@ namespace UserDataPermissions
                         filesec.SetOwner(user);
                         userfile.SetAccessControl(filesec);
                     }
+                    catch (ArgumentOutOfRangeException e)
+                    {
+                        Log($"{e.Message}: {userfile.FullName}");
+                        continue;
+                    }
                     catch (ArgumentException)
                     {
                         Log("Error processing file (path might be too long): " + userfile.FullName);
                         continue;
                     }
-
                 }
 
             }
