@@ -132,12 +132,14 @@ namespace UserDataPermissions
                     catch (ArgumentOutOfRangeException e)
                     {
                         Log($"{e.Message}: {usersubdir.FullName}");
-                        continue;
                     }
                     catch (ArgumentException)
                     {
                         Log("Error processing file (path might be too long): " + usersubdir.FullName);
-                        continue;
+                    }
+                    catch (IdentityNotMappedException e)
+                    {
+                        Log($"{e.Message}{Environment.NewLine}{e.StackTrace}: {usersubdir.FullName}");
                     }
                 }
 
@@ -165,12 +167,14 @@ namespace UserDataPermissions
                     catch (ArgumentOutOfRangeException e)
                     {
                         Log($"{e.Message}: {userfile.FullName}");
-                        continue;
                     }
                     catch (ArgumentException)
                     {
                         Log("Error processing file (path might be too long): " + userfile.FullName);
-                        continue;
+                    }
+                    catch (IdentityNotMappedException e)
+                    {
+                        Log($"{e.Message}{Environment.NewLine}{e.StackTrace}: {userfile.FullName}");
                     }
                 }
 
