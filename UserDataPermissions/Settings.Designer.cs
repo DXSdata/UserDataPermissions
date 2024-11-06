@@ -12,7 +12,7 @@ namespace UserDataPermissions {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -43,20 +43,6 @@ namespace UserDataPermissions {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>Administratoren</string>
-  <string>SYSTEM</string>
-  <string>Domänencomputer</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection fullAccessUsers {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["fullAccessUsers"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Authentifizierte Benutzer")]
         public string defaultGroup {
             get {
@@ -70,17 +56,6 @@ namespace UserDataPermissions {
         public string ownersGroup {
             get {
                 return ((string)(this["ownersGroup"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>DfsrPrivate</string>\r\n</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection exceptions {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["exceptions"]));
             }
         }
         
@@ -108,6 +83,31 @@ namespace UserDataPermissions {
         public bool skipParentPermissions {
             get {
                 return ((bool)(this["skipParentPermissions"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">
+  <string>Administratoren</string>
+  <string>SYSTEM</string>
+  <string>Domänencomputer</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection fullAccessUsers {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["fullAccessUsers"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsd=\"http://www.w3." +
+            "org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <s" +
+            "tring>DfsrPrivate</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection exceptions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["exceptions"]));
             }
         }
     }
